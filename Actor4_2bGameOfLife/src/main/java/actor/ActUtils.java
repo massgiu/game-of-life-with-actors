@@ -31,8 +31,8 @@ public class ActUtils extends AbstractActor{
 			cellList =msg.getCellList();
 
 			int percent = msg.getFillPercent();
-			for (int i = 0; i < numOfCol; i++) { // larghezza ->x
-				for (int j = 0; j < numOfRow; j++) { // altezza ->y
+			for (int i = 0; i < numOfCol; i++) { // width ->x
+				for (int j = 0; j < numOfRow; j++) { // height ->y
 					if (Math.random() * 100 <= percent) {
 						if (!cellList.contains(new MyPoint(i, j))) {
 							cellList.add(new MyPoint(i, j));

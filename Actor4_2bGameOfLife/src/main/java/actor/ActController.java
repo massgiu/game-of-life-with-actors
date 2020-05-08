@@ -90,7 +90,7 @@ public class ActController extends AbstractActor{
 				gamePanel.updateView(cellList, nState);
 				Thread.sleep(50);
 				nState += 1;
-//				//invio messaggio per eseguire nuova computazione
+				//Send messages for a new computation
 					for (int actId=0;actId<NUM_OF_ACTOR;actId++) {
 						actWorker[actId].tell(new CalcRowMsg(actId,new ArrayList<>(cellList)),self());
 					}
