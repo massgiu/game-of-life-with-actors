@@ -35,6 +35,7 @@ public class ActController extends AbstractActor{
 	private Set<Integer> checkJobSet = new HashSet<>();
 	private boolean stopped,exit;
 	private ActorRef utilsAct;
+//	private Chrono chrono = new Chrono();
 	
 	public static Props props(ActorSystem system) {
 	    return Props.create(ActController.class, () -> new ActController(system));
@@ -107,6 +108,7 @@ public class ActController extends AbstractActor{
 		})
 		.matchEquals("Reset", msg -> {
 			System.out.println("Reset pressed");
+			nState=0;
 			utilsAct.tell("Reset",self());
 		})
 		.matchEquals("Exit", msg -> {
