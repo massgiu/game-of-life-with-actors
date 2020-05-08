@@ -12,7 +12,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		ActorSystem system = ActorSystem.create("MySystem");
-		ActorRef coordAct = system.actorOf(ActController.props(system));
+		ActorRef coordAct = system.actorOf(ActController.props(system)); //msg receiver
 		ControlPanel controlPanel = new ControlPanel(system,coordAct);
 		SwingUtilities.invokeLater(() -> {
 			controlPanel.setVisible(true);

@@ -27,7 +27,7 @@ public class ActController extends AbstractActor{
 	private ActorSystem system;
 	
 	private int actId;
-	private static int actorCount, nState,fillPercent;
+	private static int actorCount, nState, fillPercent;
 	private ActorRef[] actWorker;
 	private GamePanel gamePanel;
 	private ControlPanel controlPanel;
@@ -63,7 +63,7 @@ public class ActController extends AbstractActor{
 			gamePanel = controlPanel.getGamePanel();
 		})
 		.matchEquals("Start", msg->{
-			System.out.println("Stop Pressed");
+			System.out.println("Start Pressed");
 //			chrono.start();
 			stopped=false;
 			for (int actId=0; actId<NUM_OF_ACTOR; actId++) {

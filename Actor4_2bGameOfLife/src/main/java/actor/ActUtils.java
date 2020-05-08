@@ -64,7 +64,7 @@ public class ActUtils extends AbstractActor{
 	                if (gameBoard[i+1][j-1]) { surrounding++; }
 	                if (gameBoard[i+1][j])   { surrounding++; }
 	                if (gameBoard[i+1][j+1]) { surrounding++; }
-	                if (gameBoard[i][j]) { //caso in cui la cella è true
+	                if (gameBoard[i][j]) { //if the cell is true
 	                    // Cell is alive, Can the cell live? (2-3)
 	                    if ((surrounding == 2) || (surrounding == 3)) {
 	                    	gameBoardNext[i-1][j-1]=true;

@@ -131,16 +131,11 @@ public class ControlPanel extends JFrame implements ActionListener {
             mi_game_play.setEnabled(false);
             mi_game_stop.setEnabled(true);
             mi_file_exit.setEnabled(true);
-//            gamePanel.setStopPressed(false);
-//            gamePanel.setExitPressed(false);
-            
-//            selection = system.actorSelection(ACT_CONTROLLER_PATH);
             actRef.tell("Start",ActorRef.noSender());
             chrono.start();
         } else {
             mi_game_play.setEnabled(true);
             mi_game_stop.setEnabled(false);
-//    		selection = system.actorSelection(ACT_CONTROLLER_PATH);
             actRef.tell("Stop",ActorRef.noSender());
         }
     }
@@ -177,7 +172,6 @@ public class ControlPanel extends JFrame implements ActionListener {
                     if (cb_percent.getSelectedIndex() > 0) {
                         actRef.tell(new FillPercentMsg((Integer)cb_percent.getSelectedItem()),
                         		ActorRef.noSender());
-//                        mi_game_play.setEnabled(false); //evito che play possa essere prem durante il riemp
                         f_autoFill.dispose();
                     }
                 }
