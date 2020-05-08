@@ -48,10 +48,9 @@ public class ActController extends AbstractActor{
 	@Override
 	public void preStart() throws Exception {
 		utilsAct = system.actorOf(ActUtils.props(NUM_OF_ROW,NUM_OF_COL));
-		//creo gli attori worker
+		//Create worker actors
 		actWorker = new ActorRef[NUM_OF_ACTOR];
 		for (int actId=0; actId<NUM_OF_ACTOR; actId++) {
-//			actWorker[actId]= system.actorOf(ActWorkerFull.props(NUM_OF_ACTOR,NUM_OF_ROW,NUM_OF_COL));
 			actWorker[actId]= system.actorOf(ActWorker.props(NUM_OF_ACTOR,NUM_OF_ROW,NUM_OF_COL,utilsAct));
 		}
 	}
@@ -91,10 +90,6 @@ public class ActController extends AbstractActor{
 				gamePanel.updateView(cellList, nState);
 				Thread.sleep(50);
 				nState += 1;
-//				if (nState==100) {
-//					chrono.stop();
-//					System.out.println(chrono.getTime());
-//				}
 //				//invio messaggio per eseguire nuova computazione
 					for (int actId=0;actId<NUM_OF_ACTOR;actId++) {
 						actWorker[actId].tell(new CalcRowMsg(actId,new ArrayList<>(cellList)),self());
