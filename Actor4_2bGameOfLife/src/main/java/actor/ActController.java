@@ -35,7 +35,6 @@ public class ActController extends AbstractActor{
 	private Set<Integer> checkJobSet = new HashSet<>();
 	private boolean stopped,exit;
 	private ActorRef utilsAct;
-	private Chrono chrono = new Chrono();
 	
 	public static Props props(ActorSystem system) {
 	    return Props.create(ActController.class, () -> new ActController(system));
